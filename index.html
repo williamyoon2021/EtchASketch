@@ -75,7 +75,12 @@
 
       <div style="text-align:center;">
               <h2>Introduction</h2>
-              <p style="text-align: left;padding: 0px 30px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum lorem nulla, consectetur at leo vel, pretium bibendum nisl. Cras blandit quam a enim ultrices, eu convallis enim posuere. Donec eleifend enim sed purus consectetur, vitae cursus lectus varius. Vivamus consectetur felis nec est venenatis posuere. Phasellus vitae aliquet erat. In laoreet lacinia mollis. Quisque iaculis nisl fermentum pharetra lobortis. Donec rhoncus dui sem, ac molestie leo tristique vel. Phasellus in nibh feugiat, fringilla lectus in, elementum magna. Etiam quis dui condimentum, tempus ex in, dapibus est. Cras ut congue augue. Donec ac enim ex. Ut id tristique risus, vel porttitor quam. Sed ultricies enim eu nibh porttitor, vel sodales enim feugiat. Fusce volutpat venenatis magna ac ultrices. Curabitur eget urna ut nulla mattis convallis non eu diam.</p>
+              <p style="text-align: left;padding: 0px 30px;">
+                As part of our ECE 5725 final project, we created a digital Etch-A-Sketch simulator. This simulator is capable of 
+                drawing with precision using rotary encoders that control left-to-right and top-to-bottom movement. Additionally, 
+                the user is able to interact further by shaking an accelerometer to delete the current image, much like the original toy. 
+                Finally, there is a primarily digital feature that allows drawings to be saved and reloaded for future use.
+              </p>
       </div>
 
     <hr id='obj'>
@@ -87,9 +92,9 @@
           <div class="col-md-8" style="font-size:18px;">
           <h2>Project Objective:</h2>
           <ul>
-              <li>some important objectives.some important objectives.some important objectives.some important objectives.</li>
-                <li>some other important objectives.</li>
-            <li>some not-that-important objectives.</li>
+              <li>Enable precise drawing control using rotary encoders, as similar to an etch-a-sketch as possible.</li>
+              <li>Incorporate shake to erase functionality via the accelerometer.</li>
+              <li>Allow saving and loading of drawings for future sessions.</li>
           </ul>
           </div>
       </div>
@@ -148,21 +153,25 @@
       <div style="font-size:18px">
           <h2>Parts List</h2>
           <ul>
-              <li>Raspberry Pi $35.00</li>
-              <li>Raspberry Pi Camera V2 $25.00</li>
-              <a href="https://www.adafruit.com/product/1463"><li>NeoPixel Ring - $9.95</li></a>
-              <li>LEDs, Resistors and Wires - Provided in lab</li>
+              <li>Raspberry Pi, 1x $35.00</li>
+              <li>Capacitive piTFT, 1x $44.95</li>
+              <li>Raspberry Pi power supply, 1x - Provided in lab</li>
+              <li>Raspberry Pi case, 1x - Provided in lab</li>
+              <li>Raspberry Pi extension cable and header, 1x - Provided in lab</li>
+              <a href="https://www.adafruit.com/product/2809"></a><li>LIS3DH, 3-axis accelerometer, 1x $4.95</li>
+              <li>Rotary Encoders, 2x $4.50</li>
+              <li>Resistors and Wires - Provided in lab</li>
+              
           </ul>
-          <h3>Total: $69.95</h3>
+          <h3>Total: $93.90</h3>
       </div>
       <hr>
       <div style="font-size:18px">
           <h2>References</h2>
-          <a href="https://picamera.readthedocs.io/">PiCamera Document</a><br>
-          <a href="http://www.micropik.com/PDF/SG90Servo.pdf">Tower Pro Servo Datasheet</a><br>
-          <a href="http://getbootstrap.com/">Bootstrap</a><br>
-          <a href="http://abyz.co.uk/rpi/pigpio/">Pigpio Library</a><br>
-          <a href="https://sourceforge.net/p/raspberry-gpio-python/wiki/Home/">R-Pi GPIO Document</a><br>
+          <a href="https://raspi.tv/download/RPi.GPIO-Cheat-Sheet.pdf">RPi GPIO Cheat Sheet</a><br>
+          <a href="https://www.pygame.org/docs/">PyGame Docs</a><br>
+          <a href="https://www.circuitbasics.com/what-is-an-accelerometer/">LIS3DH Guide</a><br>
+          <a href="https://thepihut.com/blogs/raspberry-pi-tutorials/how-to-use-a-rotary-encoder-with-the-raspberry-pi?srsltid=AfmBOoppjw2EUYH9hkZkDrHnv7yqnRgGNeAkKE-v61SvsxmC-qFtoNpf">Rotary Encoder Guide</a><br>
 
       </div>
 
