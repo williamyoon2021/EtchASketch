@@ -42,7 +42,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="#">Etch-A-Sketch</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -61,8 +61,8 @@
     <div class="container">
 
       <div class="starter-template">
-        <h1>Awesome ECE5725 Project</h1>
-        <p class="lead">Really Awesome<br>A Project By Jane Doe.</p>
+        <h1>Etch-A-Sketch</h1>
+        <p class="lead">ECE 5725 Final Project<br>William Yoon (wty5), Bryant Park (blp73)</p>
       </div>
 
       <hr>
@@ -103,7 +103,28 @@
 
       <div style="text-align:center;">
               <h2>Design</h2>
-              <p style="text-align: left;padding: 0px 30px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum lorem nulla, consectetur at leo vel, pretium bibendum nisl. Cras blandit quam a enim ultrices, eu convallis enim posuere. Donec eleifend enim sed purus consectetur, vitae cursus lectus varius. Vivamus consectetur felis nec est venenatis posuere. Phasellus vitae aliquet erat. In laoreet lacinia mollis. Quisque iaculis nisl fermentum pharetra lobortis. Donec rhoncus dui sem, ac molestie leo tristique vel. Phasellus in nibh feugiat, fringilla lectus in, elementum magna. Etiam quis dui condimentum, tempus ex in, dapibus est. Cras ut congue augue. Donec ac enim ex. Ut id tristique risus, vel porttitor quam. Sed ultricies enim eu nibh porttitor, vel sodales enim feugiat. Fusce volutpat venenatis magna ac ultrices. Curabitur eget urna ut nulla mattis convallis non eu diam.</p>
+              <p style="text-align: left;padding: 0px 30px;">
+                Similar to past labs, we utilized the Raspberry Pi alongside a piTFT screen, with the intentions of adding additional hardware 
+                features that allow user interfacing. To simulate the traditional knob-based controls of Etch-A-Sketch, we decided to use two 
+                rotary encoders as knobs.
+                <br>
+                For background knowledge, a rotary encoder is a device that detects the degree of rotation and direction of the attached knob. 
+                As the knob is turned, each “click” indicates that one positional movement has taken place. These clicks can be tracked by the 
+                “CLK” signal to provide either absolute positional data or incremental positional data. To determine direction, we take advantage 
+                of the “DT” signal and see how its state changes relative to the CLK signal. This will be important during the software design.
+                <br>
+                Since these rotary encoders have built in 10k Ohm resistors, there is no need to add additional pull-up resistors. As a result, 
+                we connect the CLK, DT, GND, and 3V3 pins to their respective ports (CLK and DT utilize GPIO ports).
+                <br>
+                To simulate the manual shaking-to-delete process, we decided to use a 1 LIS3DH 3-axis accelerometer. To interface with the Raspberry Pi, 
+                we utilized the I2C communication protocol. Although there was no significant difference between using I2C vs. SPI, we chose I2C since less 
+                wires were required. Since we are only using one system (Raspberry Pi) and one device (accelerometer), we did not have to consider tradeoffs 
+                regarding clock synchronization, device sharing, etc. As a result, we connect the VIN, GND, SDA, SCL, and INT pins to their respective ports 
+                (INT utilizes GPIO ports).
+                <br>
+                The image below is our final wiring diagram:
+
+              </p>
       </div>
 
     <hr id='drawings'>
