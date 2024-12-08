@@ -107,21 +107,21 @@
                 Similar to past labs, we utilized the Raspberry Pi alongside a piTFT screen, with the intentions of adding additional hardware 
                 features that allow user interfacing. To simulate the traditional knob-based controls of Etch-A-Sketch, we decided to use two 
                 rotary encoders as knobs.
-                <br>
+                <br> <br>
                 For background knowledge, a rotary encoder is a device that detects the degree of rotation and direction of the attached knob. 
                 As the knob is turned, each “click” indicates that one positional movement has taken place. These clicks can be tracked by the 
                 “CLK” signal to provide either absolute positional data or incremental positional data. To determine direction, we take advantage 
                 of the “DT” signal and see how its state changes relative to the CLK signal. This will be important during the software design.
-                <br>
+                <br> <br>
                 Since these rotary encoders have built in 10k Ohm resistors, there is no need to add additional pull-up resistors. As a result, 
                 we connect the CLK, DT, GND, and 3V3 pins to their respective ports (CLK and DT utilize GPIO ports).
-                <br>
+                <br> <br>
                 To simulate the manual shaking-to-delete process, we decided to use a 1 LIS3DH 3-axis accelerometer. To interface with the Raspberry Pi, 
                 we utilized the I2C communication protocol. Although there was no significant difference between using I2C vs. SPI, we chose I2C since less 
                 wires were required. Since we are only using one system (Raspberry Pi) and one device (accelerometer), we did not have to consider tradeoffs 
                 regarding clock synchronization, device sharing, etc. As a result, we connect the VIN, GND, SDA, SCL, and INT pins to their respective ports 
                 (INT utilizes GPIO ports).
-                <br>
+                <br> <br>
                 The image below is our final wiring diagram:
 
               </p>
