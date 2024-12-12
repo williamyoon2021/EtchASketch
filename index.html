@@ -100,9 +100,16 @@
       </div>
 
     <hr id='design'>
+      <div style="text-align:center;">
+        <h2>Software Design</h2>
+        <p style="text-align: left;padding: 0px 30px;">To implement our Etch-A-Sketch functionality in software, we used an incremental design process. We started by implementing the drawing feature in PyGame, using keys on a keyboard as input. In the following weeks, we added color, saving/loading images, and resetting the image. By getting the functionality working on a laptop before trying to integrate it into our Raspberry Pi system, we were able to start working on our project while waiting to receive the rotary encoders and the accelerometer.</p>
+        <p style="text-align: left;padding: 0px 30px;">When we began integration of our new hardware into the Etch-A-Sketch program, we abstracted out functions for each feature and added sections of code that would only run on the Raspberry Pi. For the accelerometer, it uses a helpful library called <code>adafruit_lis3dh</code> to handle reading the signals. We ran into some stability issues with the accelerometer randomly disconnecting and causing OS errors when we tried to initialize the module in our code; however, this was fixed by adding a delay during setup. The accelerometer reading gives us values for acceleration in the x, y, and z directions. We just combined the values using the Pythagorean formula and experimented with values for a threshold to determine if the device was being shaken or not.</p>
+        <p style="text-align: left;padding: 0px 30px;">The rotary encoders were also straightforward to setup, and we used the GPIO interface already in place for the buttons to read inputs from the rotary encoders. The logic was also relatively simple once we understood the reasoning. To read the encoders, we kept track of the values of two pins and whenever a pin changed values, we would compare the CLK pin to its previous value and determine the direction of rotation from that. Within each iteration of the game loop, the code would check both rotary encoders for a rotation and appropriately move the drawing element around.</p>
+        <p style="text-align: left;padding: 0px 30px;">After the basic functionality of moving the drawing element around and clearing the screen was implemented with the rotary encoders and accelerometer, we also added functionality to the buttons on the PiTFT display, using the same GPIO pin approach from prior labs. We decided to have one of the buttons cycle through red, green, blue, and black colors, one of the buttons dedicated to saving the current screen and drawing element location, one of the buttons dedicated to cycling through and loading previously saved drawings, and the final button used to quit the application.</p>
+      </div>
 
       <div style="text-align:center;">
-              <h2>Design</h2>
+              <h2>Hardware Design</h2>
               <p style="text-align: left;padding: 0px 30px;">
                 Similar to past labs, we utilized the Raspberry Pi alongside a piTFT screen, with the intentions of adding additional hardware 
                 features that allow user interfacing. To simulate the traditional knob-based controls of Etch-A-Sketch, we decided to use two 
