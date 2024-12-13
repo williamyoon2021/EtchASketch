@@ -87,7 +87,7 @@
 
       <div class="row">
           <div class="col-md-4" style="text-align:center;">
-          <img class="img-rounded" src="pics/1.jpg" alt="Generic placeholder image" width="240" height="240">
+          <img class="img-rounded" src="pics/e.jpg" alt="Etch-A-Sketch Image found on Wikipedia" width="240" height="240">
           </div>
           <div class="col-md-8" style="font-size:18px;">
           <h2>Project Objective:</h2>
@@ -121,7 +121,12 @@
                 rotary encoders as knobs.
                 <br> <br>
                 Since these rotary encoders have built in 10k Ohm resistors, there is no need to add additional pull-up resistors. As a result, 
-                we connect the CLK, DT, GND, and 3V3 pins to their respective ports (CLK and DT utilize GPIO ports).
+                we connect the CLK, DT, GND, and 3V3 pins to their respective ports (CLK and DT utilize GPIO ports). This can all be seen in the 
+                datasheet provided in the references section. Overall, using rotary encoders over potentiometers was a great decision that saved 
+                time and effort. As mentioned before, since the rotary encoders had embedded absolute and relational positional data (based on clicks),
+                we did not have to deal with any analog data. Using a potentiometer, we would have to create our own positional ranges based on the 
+                variable output voltage. Additionally, rotary encoders have an infinite turning radius, meaning it can be twisted around without being
+                mechanically stopped, while potentiometers do not. This hardware design choice allowed us to focus more on the software design. 
                 <br> <br>
                 To simulate the manual shaking-to-delete process, we decided to use a 1 LIS3DH 3-axis accelerometer. To interface with the Raspberry Pi, 
                 we utilized the I2C communication protocol. Although there was no significant difference between using I2C vs. SPI, we chose I2C since less 
@@ -129,8 +134,6 @@
                 regarding clock synchronization, device sharing, etc. As a result, we connect the VIN, GND, SDA, SCL, and INT pins to their respective ports 
                 (INT utilizes GPIO ports).
                 <br> <br>
-                The image below is our final wiring diagram:
-
               </p>
       </div>
 
@@ -138,7 +141,10 @@
 
       <div style="text-align:center;">
               <h2>Drawings</h2>
-              <p style="text-align: left;padding: 0px 30px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum lorem nulla, consectetur at leo vel, pretium bibendum nisl. Cras blandit quam a enim ultrices, eu convallis enim posuere. Donec eleifend enim sed purus consectetur, vitae cursus lectus varius. Vivamus consectetur felis nec est venenatis posuere. Phasellus vitae aliquet erat. In laoreet lacinia mollis. Quisque iaculis nisl fermentum pharetra lobortis. Donec rhoncus dui sem, ac molestie leo tristique vel. Phasellus in nibh feugiat, fringilla lectus in, elementum magna. Etiam quis dui condimentum, tempus ex in, dapibus est. Cras ut congue augue. Donec ac enim ex. Ut id tristique risus, vel porttitor quam. Sed ultricies enim eu nibh porttitor, vel sodales enim feugiat. Fusce volutpat venenatis magna ac ultrices. Curabitur eget urna ut nulla mattis convallis non eu diam.</p>
+              <img class="img-rounded" src="pics/FINAL.png" alt="Hardware Schematic" width="240" height="240">
+              <p style="text-align: left;padding: 0px 30px;">Here is an overall schematic of our hardware design. All the specific GPIO ports we utilized to 
+                connect with the Rotary Encoders and LIS3DH are shown. For ease of understanding, the Raspberry Pi and piTFT is shown as the single "Raspberry Pi"
+                box, and with the highlight being the additional hardware.</p>
       </div>
 
     <hr id='testing'>
@@ -161,15 +167,11 @@
 
     <div class="row" style="text-align:center;">
           <h2>Work Distribution</h2>
-          <div style="text-align:center;">
-              <img class="img-rounded" src="pics/group.jpg" alt="Generic placeholder image" style="width:80%;">
-              <h4>Project group picture</h4>
-          </div>
           <div class="col-md-6" style="font-size:16px">
-              <img class="img-rounded" src="pics/a.png" alt="Generic placeholder image" width="240" height="240">
-              <h3>Rick</h3>
-              <p class="lead">netid@cornell.edu</p>
-              <p>Designed the overall software architecture (Just being himself).
+              <img class="img-rounded" src="pics/c.png" alt="Portrait of william" width="240" height="240">
+              <h3>William</h3>
+              <p class="lead">wty5@cornell.edu</p>
+              <p>Designed game hardware and tested overall system.
           </div>
           <div class="col-md-6" style="font-size:16px">
               <img class="img-rounded" src="pics/b.jpg" alt="Portrait of bryant" width="240" height="240">
@@ -201,7 +203,10 @@
           <a href="https://raspi.tv/download/RPi.GPIO-Cheat-Sheet.pdf">RPi GPIO Cheat Sheet</a><br>
           <a href="https://www.pygame.org/docs/">PyGame Docs</a><br>
           <a href="https://www.circuitbasics.com/what-is-an-accelerometer/">LIS3DH Guide</a><br>
+          <a href="https://cdn-learn.adafruit.com/downloads/pdf/adafruit-lis3dh-triple-axis-accelerometer-breakout.pdf">LIS3DH Datasheet</a><br>
           <a href="https://thepihut.com/blogs/raspberry-pi-tutorials/how-to-use-a-rotary-encoder-with-the-raspberry-pi?srsltid=AfmBOoppjw2EUYH9hkZkDrHnv7yqnRgGNeAkKE-v61SvsxmC-qFtoNpf">Rotary Encoder Guide</a><br>
+          <a href="https://www.rcscomponents.kiev.ua/datasheets/ky-040-datasheet.pdf?srsltid=AfmBOorhK-lwI_pMmkebk02JlwUe0OajZ9gNjIBsmt58jB5XDx6K9Tq1">Rotary Encoder Datasheet</a><br>
+
 
       </div>
 
