@@ -154,16 +154,62 @@
 
       <div style="text-align:center;">
               <h2>Testing</h2>
-              <p style="text-align: left;padding: 0px 30px;">Since we were working with multiple different hardware components (rotary encoders, accelerometer), we first wrote throwaway code to figure out how to interface with each component individually through the GPIO pins and tested to make sure it worked.</p>
-              <p style="text-align: left;padding: 0px 30px;">After testing components individually, we integrated them into our existing game code that previously used keyboard inputs and began testing the entire system manually. We also tried drawing various shapes to make sure the system felt like it was working correctly, and even tried reproducing some art. Results in that area, however, were not promising.</p>
-              <p style="text-align: left;padding: 0px 30px;">Our testing strategy actually caught some issues with how we were processing our rotary encoder inputs. A few hours before the demo, we noticed that the rotary encoders had started working very inconsistently. Frequently they would get stuck going in one direction no matter which way the knob was physically being turned. However, randomly it would start working normally again. We tweaked the length of various sleep calls within our code to try to fix this issue, and this ultimately seemed to alleviate the inconsistent functionality. However, we later realized that it wasn't changing the values that fixed our issue, but rather it was that we had existed the SSH connection into the Pi. We believe that the SSH connection was making our latencies within our code inconsistent due to the use of the modified real-time kernel from Lab 4 on our system.</p>
+              <p style="text-align: left;padding: 0px 30px;">Since we were working with multiple different hardware components (rotary encoders, accelerometer), we 
+                first wrote throwaway code to figure out how to interface with each component individually through the GPIO pins and tested to make sure it worked.</p>
+
+              <p style="text-align: left;padding: 0px 30px;">After testing components individually, we integrated them into our existing game code that previously used 
+                keyboard inputs and began testing the entire system manually. We also tried drawing various shapes to make sure the system felt like it was working correctly, 
+                and even tried reproducing some art. Results in that area, however, were not promising.</p>
+
+              <p style="text-align: left;padding: 0px 30px;">Our testing strategy actually caught some issues with how we were processing our rotary encoder inputs. A few hours
+                 before the demo, we noticed that the rotary encoders had started working very inconsistently. Frequently they would get stuck going in one direction no matter 
+                 which way the knob was physically being turned. However, randomly it would start working normally again. We tweaked the length of various sleep calls within our 
+                 code to try to fix this issue, and this ultimately seemed to alleviate the inconsistent functionality. However, we later realized that it wasn't changing the values 
+                 that fixed our issue, but rather it was that we had existed the SSH connection into the Pi. We believe that the SSH connection was making our latencies within our code 
+                 inconsistent due to the use of the modified real-time kernel from Lab 4 on our system.</p>
       </div>
 
     <hr id='result'>
 
       <div style="text-align:center;">
-              <h2>Result</h2>
-              <p style="text-align: left;padding: 0px 30px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum lorem nulla, consectetur at leo vel, pretium bibendum nisl. Cras blandit quam a enim ultrices, eu convallis enim posuere. Donec eleifend enim sed purus consectetur, vitae cursus lectus varius. Vivamus consectetur felis nec est venenatis posuere. Phasellus vitae aliquet erat. In laoreet lacinia mollis. Quisque iaculis nisl fermentum pharetra lobortis. Donec rhoncus dui sem, ac molestie leo tristique vel. Phasellus in nibh feugiat, fringilla lectus in, elementum magna. Etiam quis dui condimentum, tempus ex in, dapibus est. Cras ut congue augue. Donec ac enim ex. Ut id tristique risus, vel porttitor quam. Sed ultricies enim eu nibh porttitor, vel sodales enim feugiat. Fusce volutpat venenatis magna ac ultrices. Curabitur eget urna ut nulla mattis convallis non eu diam.</p>
+              <h2>Results</h2>
+              <p style="text-align: left;padding: 0px 30px;"> Overall, our team met the goals outlined in the description. We utilized two rotary encoders that controlled up/down and left/right positioning, respectively.
+                We were able to shake an accelerometer to completely wipe the screen consistently without having it trigger on accident. We were able to properly save and cycle
+                through loaded images, with each image retaining all visual information. However, as mentioned in the Testing section, we ran into a few bugs throughout the project. 
+                For one, our accelerometer sometimes had trouble connecting to the Raspberry Pi through I2C, requiring us to constantly replug the wire. Additionally, we ran into several
+                unexpected issues during our Demo. The rotary encoder issues were mentioned above, but we also seemed to have forgot to place borders around the edges of the screen. As a result,
+                the pixel cursor could be run off the screen. These issues are noted, but they are minor enough where we still feel satisfied with our project's completion.
+              </p>
+      </div>
+
+    <hr>
+
+    <hr id='conclusions'>
+
+      <div style="text-align:center;">
+              <h2>Conclusions</h2>
+              <p style="text-align: left;padding: 0px 30px;"> By designing and implementing this project from scratch, we felt confident in our abilities to utilize the hardware
+                and software capabilities of the Raspberry Pi. Given the limited time span, it was a great experience figuring out how to implement additional hardware on our own.
+                Usually the labs handouts assist us with the schematic, so it was rewarding finding datasheets online and deciphering them. On the software side, it felt like a culmination
+                of the class as we utilized many ideas we had already learnt. Additionally, it was challenging figuring out how to interact with the additional hardware we utilized. We realized
+                that interpolating data is just as difficult as receiving data. We did not run into anything that completely did not work, but as mentioned above, our hardware decision of utilizing
+                rotary encoders over potentiometers saved a lot of stress. The potentiometer would definitely not have worked, so it was good that we did not waste any time attempting to use them.
+              </p>
+      </div>
+
+    <hr>
+
+    <hr id='future work'>
+
+      <div style="text-align:center;">
+              <h2>Future Work</h2>
+              <p style="text-align: left;padding: 0px 30px;">Given more time, there is a lot of potential to expand the project through software. Since the main hardware aspects
+                 of the Etch-A-Sketch are complete, we can take advantage of the digital aspect of our simulation. For example, we could have a feature for automatically playing back
+                 saved drawings, having the program recreate the order and color that the pixels were filled in. Perhaps this could be done by associating each saved image with a vector
+                 of filled in pixels and have the playback feature iterate through this vector. Additionally, we could look into adding a starting menu that provides an "Options", "New", and "Load" button. 
+                 The "Option" button could have the user choose their starting color. The "Load" feature could be linked to the repository containing all the files and have the user choose which drawing to
+                 resume. The "New" button would just start a new drawing. These buttons could be interacted through touch-screen to incorporate additional Raspberry Pi capabilities.
+              </p>
       </div>
 
     <hr>
